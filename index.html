@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkupV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .all{
+            height: 900px;
+            width: 1115px;
+            /*top: 237px;*/
+            top: 50%; 
+            right: 0; bottom: 0; left: 0;
+            margin: auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        header{
+            height: 115px;
+            width: 100%;
+            display: grid;
+            grid-template-columns:105fr 396fr 1fr 68fr 52px 48px;
+            grid-template-areas: 
+                "Logo buttons . shopcart profile .";
+            align-items: center;
+            border-bottom: 1px solid #e8e7eb;
+        }
+        .logo{
+            grid-area: Logo;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .buttons{
+            grid-area:buttons;
+            color:#6f6f71;
+            font-size: 18px;
+        }
+        .buttons>span{
+            margin-right: 33px;
+        }
+        .shopcart{
+            grid-area: shopcart;
+            color:#6b6c6f;
+            text-align: center;
+            font-size: 25px;
+        }
+        .profile{
+            grid-area: profile;
+            height: 52px;
+            border-radius: 30px;
+        }
+        section{
+            display: grid;
+            grid-template-columns:48px 445px 125px 445px 1fr;
+            grid-template-rows: 90px 570px 1fr;
+            grid-template-areas: 
+                ". . . . ."
+                ". slider . description ."
+                ". . . . .";
+        }
+        .slider{
+            grid-area: slider;
+            background-color: white;
+            display: grid;
+            
+            grid-template-rows: 1fr 26px 95px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+                "currentimg currentimg currentimg currentimg"
+                ". . . ."
+                "sub1 sub2 sub3 sub4";
+            column-gap: 30px;
+        }
+        .description{
+            grid-area: description;
+            background-color: white;
+            margin-top: 40px;
+            
+        }
+        .mainimg{
+            grid-area: currentimg;            
+            width: 445px;
+            height: 449px;
+        }
+        img{
+            border-radius: 10px;
+            height: 100%;
+            width: 100%;
+        }
+        sub>img{
+            height: 51px;
+            width: 51px;
+        }
+        .subimg1{
+            grid-area: sub1;
+        }
+        .subimg2{
+            grid-area: sub2;
+        }
+        .subimg3{
+            grid-area: sub3;
+        }
+        .subimg4{
+            grid-area: sub4;
+        }
+        h5{
+            color: #ff7d1b;
+            font-size: 15px;
+        }
+        h1{
+            font-size: 43px;
+            margin-top: 22px;
+            margin-bottom: 45px;
+            margin-right: 50px;
+        }
+        p{
+            margin-top: 0px;
+            font-size: 15px;
+            color: #737478;
+            margin-bottom: 40px;
+        }
+        .price{
+            
+            line-height: 22px;
+            font-weight: bold;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 103px 51px;
+            row-gap: 5px;
+        }
+        .maprice{
+            height: 24px;
+            font-size: 24px;
+            margin-right: 18px;
+        }
+        .discount{
+            color: #f79247;
+            background-color: #fdeee1;
+            height: 100%;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 4px;
+            
+        }
+        .orprice{
+            font-size: 15px;
+            color: #aaadb5;
+            text-decoration: line-through;
+            
+        }
+        .bottarea{
+            margin-top: 42px;
+            font-size: 14px;
+            column-gap: 16px;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 158px 271px;
+            grid-template-areas: 
+            "amount cart";
+        }
+        .bottarea>short:first-child{
+            grid-area: amount;
+            background-color: #f7f8fd;
+            font-weight: bold;
+            font-size: 25px;
+            display: grid;
+            width: 158px;
+            height: 56px;
+            line-height: 56px;
+            border-radius: 8px;
+            text-align: center;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        box:not(.count){
+            color: #f79247;
+        }
+        .addtocart{
+            font-weight: bold;
+            grid-area:cart;
+            text-align: center;
+            line-height: 56px;
+            color: white;
+            border-radius: 8px;
+            background-color: #f79247;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <header>
+            <h2 class="logo">
+                sneakers
+            </h2>
+            <div class="buttons">
+                <span>Collections</span>
+                <span>Men</span>
+                <span>Women</span>
+                <span>About</span>
+                <span>Contact</span>
+            </div>
+            <span class="shopcart">
+                <i class="fa fa-shopping-cart"></i>
+            </span>
+            <img class="profile" src="morty.jpeg" alt="Profile image Morty">
+        </header>
+        <section>
+            <article class="slider">
+                <article class="mainimg">
+                    <img src="Product.jpg" alt="White Nike tennis">
+                </article>
+                <article class="sub subimg1">
+                    <img src="Product.jpg" alt="White Nike tennis">
+                </article>
+                <article class="sub subimg2">
+                    <img src="Product.jpg" alt="White Nike tennis">
+                </article>
+                <article class="sub subimg3">
+                    <img src="Product.jpg" alt="White Nike tennis">
+                </article>
+                <article class="sub subimg4">
+                    <img src="Product.jpg" alt="White Nike tennis">
+                </article>
+            </article>
+            <article class="description">
+                <h5>
+                    SNEAKER COMPANY
+                </h5>
+                <h1>
+                    Fall Limited Edition Sneakers
+                </h1>
+                <p>
+                    There low-profile sneakers are your perfect casual
+                    wear companion. Featuring a durable rubber outer sole,
+                    they'll withstand everything the weather can offer.
+                </p>
+                <article class="price">
+                    <span class="maprice">$125.00</span>
+                    <span class="discount">50%</span>
+                    <short class="orprice">$250.00</short>    
+                </article>
+                <article class="bottarea">
+                    <short>
+                        <box class="minus">-</box>
+                        <box class="count">0</box>
+                        <box class="plus">+</box>
+                    </short>
+                    <short class="addtocart">
+                        <i class="fa fa-shopping-cart"></i> Add to cart
+                    </short>
+                </article>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
